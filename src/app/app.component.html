@@ -1,0 +1,211 @@
+<article class="overlay" [ngClass]="visibleLocation ? 'is-visible' : ''">
+    <header>
+        <a class="menu">Menu</a>
+        <a class="logo"></a>
+        <div class="cart">
+            <i class="cart-img"></i>
+            <span>₹420 / 2 Items</span>
+            <i class="go-img"></i>
+        </div>
+        <button class="btn btn--white btn--bulk-order">Bulk Order</button>
+    </header>
+    <section class="eatfresh-body container">
+        <div class="today-menu">
+            <a class="today-menu__cont" (click)="showDate()">Today's Menu<i></i></a>
+        </div>
+        <div class="location" *ngIf="!visibleDate">
+            <p class="location__place" (click)="showLoacation()">2628, 27th main, HSR Layout<i></i></p>
+        </div>
+        <div class="select-location" *ngIf="visibleLocation">
+            <select id="" class="select-location__search-box" (change)="showLoacation()">
+                <option value="0">Select your delivery location</option>
+                <option *ngFor="let state of State" value="state">{{state}}</option>
+            </select>
+            <span class="select-location__detect-icon">Locate me</span>
+            <div class="select-location__dropdown">
+                <h2 class="select-location__dropdown__heading">Saved Address</h2>
+                <ul class="">
+                    <li class="select-location__dropdown__list" (click)="showLoacation()">
+                        <h5 class="select-location__dropdown__list__sub-heading">Work</h5>
+                        <p class="select-location__dropdown__list__cont">Parallel Labs, #2628, 27th main, Sector 1, HSR Layout, Bangalore</p>
+                    </li>
+                    <li class="select-location__dropdown__list" (click)="showLoacation()">
+                        <h5 class="select-location__dropdown__list__sub-heading">Home</h5>
+                        <p class="select-location__dropdown__list__cont">Fort Grand, #369, 18th cross, 27th main, opp to NIFT college, sector 1, HSR Layout, Bangalore.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <nav class="nav-bar" *ngIf="!visibleDate">
+            <a class="nav-bar__list active">All</a>
+            <a class="nav-bar__list">Veg</a>
+            <a class="nav-bar__list">Non Veg</a>
+            <a class="nav-bar__list">Deserts</a>
+            <a class="nav-bar__list">Drinks</a>
+        </nav>
+        <div class="date-section" *ngIf="visibleDate">
+            <div class="date-field" *ngFor="let day of Date; let first = first" 
+                [ngClass]="first ? 'active' : ''">
+                <p class="date-field__day">{{day.date}}</p>
+                <p class="date-field__month">{{day.month}}</p> 
+            </div>
+        </div>
+        <ul class="dishes clearfix">
+            <li class="dishes__list">
+                <figure class="dishes__list__img"></figure>
+                <div class="dishes__list__container">
+                    <div class="dish-details clearfix"> 
+                        <p class="dish-details__name">Spiced Veg with Lemony Bulghar Wheat Salad</p>
+                        <span class="dish-details__price">₹220</span>
+                    </div>
+                    <div class="restaurants-details clearfix">
+                        <div class="restaurants-details__profile clearfix">
+                            <div class="avatar">
+                                <figure class="avatar__pic"></figure>
+                                <div class="avatar__cont">
+                                    <h5 class="avatar__cont__name">Chef Sundar</h5>
+                                    <code class="avatar__cont__desig">Exec Chef, Taj Vivinta</code>
+                                </div>
+                            </div>
+                            <div class="food-type">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="food-type__icon">
+                                    <g fill="none" fill-rule="evenodd" stroke="#999" stroke-width="1.6">
+                                        <path d="M3.068 19c3.689-8.161 11.023-6.545 11.023-6.545M7.147 9.309s.962-1.451.443-3.874C6.933 2.358 4.026 1 4.026 1S1 3.885 1 7.178c0 3.841 3.394 5.493 3.394 5.493s1.085-4.309 6.424-4.309c4.647 0 8.182 3.274 8.182 3.274s-3.067 4.91-8.182 4.91c-3.203 0-5.03-1.234-5.03-1.234M4.007 6.593s-.562 3.97.447 6.022"/>
+                                    </g>
+                                </svg>
+                                <p class="food-type__name">Vegan Food</p>
+                            </div>
+                            <div class="food-rating">
+                                <p class="food-rating__number">3.7</p>
+                                <p class="food-rating__txt">Rating</p>
+                            </div>
+                        </div>
+                        <div class="restaurants-details__order-numer">
+                            <button type="button" class="btn btn--fill restaurants-details__order-numer--btn">
+                                <i class="restaurants-details__order-numer--btn__increment">+</i>
+                                <span>02</span>
+                                <i class="restaurants-details__order-numer--btn__decrement">-</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dishes__list">
+                <figure class="dishes__list__img"></figure>
+                <div class="dishes__list__container">
+                    <div class="dish-details clearfix"> 
+                        <p class="dish-details__name">Almond Beans Bechamel Chicken with Pasta</p>
+                        <span class="dish-details__price">₹220</span>
+                    </div>
+                    <div class="restaurants-details clearfix">
+                        <div class="restaurants-details__profile clearfix">
+                            <div class="avatar">
+                                <figure class="avatar__pic"></figure>
+                                <div class="avatar__cont">
+                                    <h5 class="avatar__cont__name">Chef Sundar</h5>
+                                    <code class="avatar__cont__desig">Exec Chef, Taj Vivinta</code>
+                                </div>
+                            </div>
+                            <div class="food-type">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="food-type__icon-nv">
+                                    <g fill="none" fill-rule="evenodd" stroke="#999" stroke-width="1.7">
+                                        <path d="M12.306 7.69C11.686 4.39 9.18 1 6.727 1 3.9 1 1 5.463 1 9.182c0 3.06 1.52 5.28 3.66 6.144"/>
+                                        <path d="M4.273 13.273c0-3.163 2.566-5.728 6.545-5.728 3.719 0 8.182 2.9 8.182 5.728C19 16.1 14.5 19 10.818 19c-4.054 0-6.545-2.564-6.545-5.727z"/>
+                                    </g>
+                                </svg>
+                                <p class="food-type__name">Contains Egg</p>
+                            </div>
+                            <div class="food-rating">
+                                <p class="food-rating__number">4.1</p>
+                                <p class="food-rating__txt">Rating</p>
+                            </div>
+                        </div>
+                        <div class="restaurants-details__order-numer">
+                            <button class="btn">+ ADD</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dishes__list">
+                <figure class="dishes__list__img"></figure>
+                <div class="dishes__list__container">
+                    <div class="dish-details clearfix"> 
+                        <p class="dish-details__name">Spiced Veg with Lemony Bulghar Wheat Salad</p>
+                        <span class="dish-details__price">₹220</span>
+                    </div>
+                    <div class="restaurants-details clearfix">
+                        <div class="restaurants-details__profile clearfix">
+                            <div class="avatar">
+                                <figure class="avatar__pic"></figure>
+                                <div class="avatar__cont">
+                                    <h5 class="avatar__cont__name">Chef Sundar</h5>
+                                    <code class="avatar__cont__desig">Exec Chef, Taj Vivinta</code>
+                                </div>
+                            </div>
+                            <div class="food-type">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="21" viewBox="0 0 19 21" class="food-type__icon-nv-chicken">
+                                    <g fill="none" fill-rule="evenodd" transform="translate(1)">
+                                        <path stroke="#999" stroke-width="1.7" d="M7.811 20.455s.739-1.023 2.046-1.023c1.306 0 2.045 1.023 2.045 1.023"/>
+                                        <circle cx="14.318" cy="4.5" r="1" fill="#999"/>
+                                        <path stroke="#999" stroke-width="1.7" d="M9 18c2.65 0 5.087-3.134 2.455-6.545"/>
+                                        <path fill="#999" d="M15.545 6.545V4.091s2.14.186 2.455 2.454h-2.455z"/>
+                                        <circle cx="13.091" cy="1.636" r="1.636" fill="#999"/>
+                                        <circle cx="15.136" cy="2.045" r="1.227" fill="#999"/>
+                                        <circle cx="11.045" cy="2.045" r="1.227" fill="#999"/>
+                                        <path stroke="#999" stroke-width="1.7" d="M2.077 8.077s1.434 1.628 1.78 3.378c5.324 0 7.598-3.496 7.598-6.546a2.454 2.454 0 1 1 4.909 0c0 1.724-1.656 2.515-2.455 2.975 0 0 1.636 2.064 1.636 4.992 0 2.954-2.07 5.124-6.288 5.124-3.453 0-5.715-5.59-5.715-5.59C2.014 10.384.05 10.602.05 10.602"/>
+                                    </g>
+                                </svg>
+                                <p class="food-type__name">Vegan Food</p>
+                            </div>
+                            <div class="food-rating">
+                                <p class="food-rating__number">3.7</p>
+                                <p class="food-rating__txt">Rating</p>
+                            </div>
+                        </div>
+                        <div class="restaurants-details__order-numer">
+                            <button class="btn btn--disabled">Out of Stock</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dishes__list">
+                <figure class="dishes__list__img"></figure>
+                <div class="dishes__list__container">
+                    <div class="dish-details clearfix"> 
+                        <p class="dish-details__name">Spiced Veg with Lemony Bulghar Wheat Salad</p>
+                        <span class="dish-details__price">₹220</span>
+                    </div>
+                    <div class="restaurants-details clearfix">
+                        <div class="restaurants-details__profile clearfix">
+                            <div class="avatar">
+                                <figure class="avatar__pic"></figure>
+                                <div class="avatar__cont">
+                                    <h5 class="avatar__cont__name">Chef Sundar</h5>
+                                    <code class="avatar__cont__desig">Exec Chef, Taj Vivinta</code>
+                                </div>
+                            </div>
+                            <div class="food-type">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="food-type__icon">
+                                    <g fill="none" fill-rule="evenodd" stroke="#999" stroke-width="1.6">
+                                        <path d="M3.068 19c3.689-8.161 11.023-6.545 11.023-6.545M7.147 9.309s.962-1.451.443-3.874C6.933 2.358 4.026 1 4.026 1S1 3.885 1 7.178c0 3.841 3.394 5.493 3.394 5.493s1.085-4.309 6.424-4.309c4.647 0 8.182 3.274 8.182 3.274s-3.067 4.91-8.182 4.91c-3.203 0-5.03-1.234-5.03-1.234M4.007 6.593s-.562 3.97.447 6.022"/>
+                                    </g>
+                                </svg>
+                                <p class="food-type__name">Vegan Food</p>
+                            </div>
+                            <div class="food-rating">
+                                <p class="food-rating__number">3.7</p>
+                                <p class="food-rating__txt">Rating</p>
+                            </div>
+                        </div>
+                        <div class="restaurants-details__order-numer">
+                            <div class="restaurants-details__order-numer">
+                                <button class="btn">+ ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+        </ul>
+    </section>
+</article>
